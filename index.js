@@ -25,6 +25,7 @@ app.get("/auth/me", checkLogin, (req, res) => {
     user: req.payload,
   });
 });
+
 app.use('/product',productRoute)
 app.use('/comment',commentRoute)
 // error handeling 

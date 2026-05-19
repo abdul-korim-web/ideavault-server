@@ -15,7 +15,7 @@ try {
     }
   
     const JWKS  = createRemoteJWKSet(
-         new URL('http://localhost:3000/api/auth/jwks')
+         new URL(process.env.JWKS_URL)
     )
     const {payload}= await jwtVerify(token,JWKS,{
          issuer: 'http://localhost:3000', // Should match your JWT issuer, which is the BASE_URL
