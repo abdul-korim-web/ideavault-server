@@ -6,6 +6,7 @@ import getProductControler from "../Controlers/products/getProductControler.js";
 import getHomeProductControler from "../Controlers/products/getHomeProductControler.js";
 import getSingleProductControler from "../Controlers/products/getSingleProductControler.js";
 import getUserProductControler from "../Controlers/products/getUserProductControler.js";
+import deleteUserProductControler from "../Controlers/products/deleteUserProductControler.js";
 const productRoute = express.Router()
 
 
@@ -17,6 +18,8 @@ productRoute.get("/",getProductControler)
 productRoute.get("/topdata",getHomeProductControler)
 //  get idea by user 
 productRoute.get("/mydata",checkLogin,getUserProductControler)
+// delete user idea 
+productRoute.delete("/:id",deleteUserProductControler)
 // get idea product by id  
 productRoute.get("/:id",checkLogin,getSingleProductControler)
 
