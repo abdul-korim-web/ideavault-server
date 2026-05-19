@@ -1,17 +1,19 @@
 import { createRemoteJWKSet, jwtVerify } from "jose";
 
 const checkLogin= async(req,res,next)=>{
+    
 try {
     const authHeader = req.headers.authorization
-    console.log(authHeader);
     if (!authHeader) {
         return  res.status(400).json({success:false,message:"authentication fail"})
     }
+
     const token = authHeader?.split(' ')[1];
     if (!token) {
         return  res.status(400).json({success:false,message:"authentication  fail"})
         
     }
+  
     const JWKS  = createRemoteJWKSet(
          new URL('http://localhost:3000/api/auth/jwks')
     )
