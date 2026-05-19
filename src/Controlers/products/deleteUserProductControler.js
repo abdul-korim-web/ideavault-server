@@ -5,7 +5,10 @@ const deleteUserProductControler = async (req, res, next) => {
   try {
     const { id } = req.params;
 
-    const deletedIdea = await IdeaModel.findByIdAndDelete(id);
+    const deletedIdea = await IdeaModel.findOneAndDelete({
+        _id: id,
+        "creator.id": req.payload.id, 
+      });
 
     if (!deletedIdea) {
       return res.status(404).json({
