@@ -18,8 +18,8 @@ try {
          new URL(process.env.JWKS_URL)
     )
     const {payload}= await jwtVerify(token,JWKS,{
-         issuer: 'http://localhost:3000', // Should match your JWT issuer, which is the BASE_URL
-      audience: 'http://localhost:3000', // Should match your JWT audience, which is the BASE_URL by default
+         issuer: process.env.ISSUSER, // Should match your JWT issuer, which is the BASE_URL
+      audience: process.env.ISSUSER, // Should match your JWT audience, which is the BASE_URL by default
     })
     if (!payload) {
         return  res.status(400).json({success:false,message:"authentication fail"})
