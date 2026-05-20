@@ -20,7 +20,7 @@ productRoute.get("/topdata",getHomeProductControler)
 //  get idea by user 
 productRoute.get("/mydata",checkLogin,getUserProductControler)
 // delete user idea 
-productRoute.delete("/:id",deleteUserProductControler)
+productRoute.delete("/:id",checkLogin,deleteUserProductControler)
 // update user idea 
 productRoute.patch("/:id",checkLogin,updateProductControler)
 // get idea product by id  
